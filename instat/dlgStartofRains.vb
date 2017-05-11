@@ -53,6 +53,7 @@ Public Class dlgStartofRains
     End Sub
 
     Private Sub InitialiseDialog()
+        ucrBase.iHelpTopicID = 199
         clsAddKey.SetRCommand(frmMain.clsRLink.strInstatDataObject & "$add_key")
         clsDayFromAndTo.SetRCommand("instat_calculation$new")
         clsDayFromAndTo.SetAssignTo("Day_From_and_To")
@@ -114,9 +115,18 @@ Public Class dlgStartofRains
         ucrReceiverDOY.bAutoFill = True
         ucrReceiverRainfall.bAutoFill = True
         ucrReceiverYear.bAutoFill = True
+
+        'save
+        ucrSaveStartofRains.SetDataFrameSelector(ucrSelectorForStartofRains.ucrAvailableDataFrames)
+        ucrSaveStartofRains.SetLabelText("New Column Name:")
+        ucrSaveStartofRains.SetIsTextBox()
+        ucrSaveStartofRains.SetPrefix("Start_of_Rains")
+        ucrSaveStartofRains.SetSaveTypeAsColumn()
     End Sub
 
     Private Sub SetDefaults()
+        ucrSaveStartofRains.Reset()
+
         ucrSelectorForStartofRains.Reset()
         chkConsecutiveRainyDays.Checked = False
         chkDrySpell.Checked = False
@@ -145,7 +155,7 @@ Public Class dlgStartofRains
     End Sub
 
     Private Sub TestOKEnabled()
-        If Not ucrReceiverRainfall.IsEmpty AndAlso Not ucrReceiverDate.IsEmpty AndAlso Not ucrReceiverDOY.IsEmpty AndAlso Not ucrReceiverYear.IsEmpty AndAlso nudThreshold.Text <> "" AndAlso nudFrom.Text <> "" AndAlso nudTo.Text <> "" AndAlso ((chkConsecutiveRainyDays.Checked AndAlso nudRDMinimum.Text <> "" AndAlso nudRDOutOfDays.Text <> "") OrElse Not chkConsecutiveRainyDays.Checked) AndAlso (((chkTotalRainfall.Checked AndAlso nudTROverDays.Text <> "") AndAlso ((rdoTRAmount.Checked AndAlso nudTRAmount.Text <> "") OrElse (rdoTRPercentile.Checked AndAlso nudTRPercentile.Text <> ""))) OrElse Not chkTotalRainfall.Checked) AndAlso ((chkDrySpell.Checked AndAlso nudDSMaximumDays.Text <> "" AndAlso nudDSLengthofTime.Text <> "") OrElse Not chkDrySpell.Checked) AndAlso ((chkDryPeriod.Checked AndAlso nudDPMaxRain.Text <> "" AndAlso nudDPRainPeriod.Text <> "" AndAlso nudDPOverallInterval.Text <> "") OrElse Not chkDryPeriod.Checked) Then
+        If ucrSaveStartofRains.IsComplete AndAlso Not ucrReceiverRainfall.IsEmpty AndAlso Not ucrReceiverDate.IsEmpty AndAlso Not ucrReceiverDOY.IsEmpty AndAlso Not ucrReceiverYear.IsEmpty AndAlso nudThreshold.Text <> "" AndAlso nudFrom.Text <> "" AndAlso nudTo.Text <> "" AndAlso ((chkConsecutiveRainyDays.Checked AndAlso nudRDMinimum.Text <> "" AndAlso nudRDOutOfDays.Text <> "") OrElse Not chkConsecutiveRainyDays.Checked) AndAlso (((chkTotalRainfall.Checked AndAlso nudTROverDays.Text <> "") AndAlso ((rdoTRAmount.Checked AndAlso nudTRAmount.Text <> "") OrElse (rdoTRPercentile.Checked AndAlso nudTRPercentile.Text <> ""))) OrElse Not chkTotalRainfall.Checked) AndAlso ((chkDrySpell.Checked AndAlso nudDSMaximumDays.Text <> "" AndAlso nudDSLengthofTime.Text <> "") OrElse Not chkDrySpell.Checked) AndAlso ((chkDryPeriod.Checked AndAlso nudDPMaxRain.Text <> "" AndAlso nudDPRainPeriod.Text <> "" AndAlso nudDPOverallInterval.Text <> "") OrElse Not chkDryPeriod.Checked) Then
             ucrBase.OKEnabled(True)
         Else
             ucrBase.OKEnabled(False)
@@ -506,7 +516,7 @@ Public Class dlgStartofRains
             clsFirstDOYPerYear.AddParameter("function_exp", Chr(34) & ucrReceiverDOY.GetVariableNames(False) & "[" & 1 & "]" & Chr(34))
             clsFirstDOYPerYear.AddParameter("calculated_from", "list(" & strCurrDataName & "=" & ucrReceiverDOY.GetVariableNames() & ")")
             clsFirstDOYPerYear.AddParameter("manipulations", clsRFunctionParameter:=clsManipulationFirstDOYPerYear)
-            clsFirstDOYPerYear.AddParameter("result_name", Chr(34) & "First_Possible_Onset_wet_season" & Chr(34))
+            clsFirstDOYPerYear.AddParameter("result_name", Chr(34) & ucrSaveStartofRains.GetText() & Chr(34))
             clsFirstDOYPerYear.AddParameter("save", 2)
 
         Else
@@ -531,6 +541,15 @@ Public Class dlgStartofRains
 
     Private Sub ucrBase_BeforeClickOk(sender As Object, e As EventArgs) Handles ucrBase.BeforeClickOk
         frmMain.clsRLink.RunScript(clsAddKey.ToScript, strComment:="Start of Rains: Defining Date column as key")
+    End Sub
+
+    Private Sub ucrSaveStartofRains_ControlContentsChanged(ucrChangedControl As ucrCore) Handles ucrSaveStartofRains.ControlContentsChanged
+        TestOKEnabled()
+    End Sub
+
+    Private Sub ucrSaveStartofRains_ControlValueChanged(ucrChangedControl As ucrCore) Handles ucrSaveStartofRains.ControlValueChanged
+        clsFirstDOYPerYear.SetAssignTo(ucrSaveStartofRains.ucrInputTextSave.GetText)
+        FirstDOYPerYear()
     End Sub
 
     'Private Sub DefaultNudValue()
