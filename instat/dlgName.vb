@@ -1,5 +1,5 @@
-﻿' Instat-R
-' Copyright (C) 2015
+﻿' R- Instat
+' Copyright (C) 2015-2017
 '
 ' This program is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
 ' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ' GNU General Public License for more details.
 '
-' You should have received a copy of the GNU General Public License k
+' You should have received a copy of the GNU General Public License 
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Imports instat.Translations
@@ -24,6 +24,7 @@ Public Class dlgName
     Private clsDefaultRFunction As New RFunction
 
     Private Sub dlgName_Load(sender As Object, e As EventArgs) Handles Me.Load
+        autoTranslate(Me)
         If bFirstLoad Then
             InitialiseDialog()
             bFirstLoad = False
@@ -35,14 +36,9 @@ Public Class dlgName
         End If
         SetRCodeForControls(bReset)
         bReset = False
-        autoTranslate(Me)
         If bUseSelectedColumn Then
             SetDefaultColumn()
         End If
-    End Sub
-
-    Private Sub ReopenDialog()
-        ucrSelectVariables.Reset()
     End Sub
 
     Private Sub InitialiseDialog()
@@ -64,6 +60,10 @@ Public Class dlgName
 
         'Label Input
         ucrInputVariableLabel.SetParameter(New RParameter("label", 3))
+    End Sub
+
+    Private Sub ReopenDialog()
+        ucrSelectVariables.Reset()
     End Sub
 
     Public Sub SetDefaults()

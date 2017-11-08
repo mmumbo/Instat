@@ -1,4 +1,20 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿' R- Instat
+' Copyright (C) 2015-2017
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License 
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class dlgRenameDataFrame
     Inherits System.Windows.Forms.Form
 
@@ -22,6 +38,7 @@ Partial Class dlgRenameDataFrame
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(dlgRenameDataFrame))
         Me.ucrBase = New instat.ucrButtons()
         Me.ucrDataFrameToRename = New instat.ucrDataFrame()
         Me.lblNewName = New System.Windows.Forms.Label()
@@ -32,63 +49,46 @@ Partial Class dlgRenameDataFrame
         '
         'ucrBase
         '
-        Me.ucrBase.Location = New System.Drawing.Point(10, 117)
+        resources.ApplyResources(Me.ucrBase, "ucrBase")
         Me.ucrBase.Name = "ucrBase"
-        Me.ucrBase.Size = New System.Drawing.Size(410, 52)
-        Me.ucrBase.TabIndex = 5
         '
         'ucrDataFrameToRename
         '
         Me.ucrDataFrameToRename.bUseCurrentFilter = True
-        Me.ucrDataFrameToRename.Location = New System.Drawing.Point(10, 10)
-        Me.ucrDataFrameToRename.Margin = New System.Windows.Forms.Padding(0)
+        resources.ApplyResources(Me.ucrDataFrameToRename, "ucrDataFrameToRename")
         Me.ucrDataFrameToRename.Name = "ucrDataFrameToRename"
-        Me.ucrDataFrameToRename.Size = New System.Drawing.Size(120, 40)
-        Me.ucrDataFrameToRename.TabIndex = 0
         '
         'lblNewName
         '
-        Me.lblNewName.Location = New System.Drawing.Point(196, 14)
+        resources.ApplyResources(Me.lblNewName, "lblNewName")
         Me.lblNewName.Name = "lblNewName"
-        Me.lblNewName.Size = New System.Drawing.Size(100, 26)
-        Me.lblNewName.TabIndex = 1
         Me.lblNewName.Tag = "New_Name"
-        Me.lblNewName.Text = "New Name:"
         '
         'ucrInputNewName
         '
         Me.ucrInputNewName.AddQuotesIfUnrecognised = True
         Me.ucrInputNewName.IsMultiline = False
         Me.ucrInputNewName.IsReadOnly = False
-        Me.ucrInputNewName.Location = New System.Drawing.Point(196, 29)
+        resources.ApplyResources(Me.ucrInputNewName, "ucrInputNewName")
         Me.ucrInputNewName.Name = "ucrInputNewName"
-        Me.ucrInputNewName.Size = New System.Drawing.Size(131, 33)
-        Me.ucrInputNewName.TabIndex = 2
         '
         'lblLabel
         '
-        Me.lblLabel.AutoSize = True
-        Me.lblLabel.Location = New System.Drawing.Point(196, 64)
+        resources.ApplyResources(Me.lblLabel, "lblLabel")
         Me.lblLabel.Name = "lblLabel"
-        Me.lblLabel.Size = New System.Drawing.Size(94, 13)
-        Me.lblLabel.TabIndex = 3
-        Me.lblLabel.Text = "Data Frame Label:"
         '
         'ucrInputLabel
         '
         Me.ucrInputLabel.AddQuotesIfUnrecognised = True
         Me.ucrInputLabel.IsMultiline = False
         Me.ucrInputLabel.IsReadOnly = False
-        Me.ucrInputLabel.Location = New System.Drawing.Point(196, 79)
+        resources.ApplyResources(Me.ucrInputLabel, "ucrInputLabel")
         Me.ucrInputLabel.Name = "ucrInputLabel"
-        Me.ucrInputLabel.Size = New System.Drawing.Size(131, 32)
-        Me.ucrInputLabel.TabIndex = 4
         '
         'dlgRenameDataFrame
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(419, 175)
         Me.Controls.Add(Me.ucrInputLabel)
         Me.Controls.Add(Me.lblLabel)
         Me.Controls.Add(Me.ucrInputNewName)
@@ -99,8 +99,6 @@ Partial Class dlgRenameDataFrame
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "dlgRenameDataFrame"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Rename Data Frame"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

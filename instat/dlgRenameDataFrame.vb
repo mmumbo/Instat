@@ -1,5 +1,5 @@
-﻿' Instat-R
-' Copyright (C) 2015
+﻿' R- Instat
+' Copyright (C) 2015-2017
 '
 ' This program is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
 ' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ' GNU General Public License for more details.
 '
-' You should have received a copy of the GNU General Public License k
+' You should have received a copy of the GNU General Public License 
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Imports instat.Translations
@@ -29,6 +29,7 @@ Public Class dlgRenameDataFrame
             SetDefaults()
         End If
         SetRCodeforControls(bReset)
+        CheckAutoName()
         bReset = False
         autoTranslate(Me)
     End Sub
@@ -53,8 +54,6 @@ Public Class dlgRenameDataFrame
         ucrInputNewName.Reset()
         ucrDataFrameToRename.Reset()
         ucrInputLabel.Reset()
-        ucrInputLabel.SetName("")
-        CheckAutoName()
 
         clsRename.SetRCommand(frmMain.clsRLink.strInstatDataObject & "$rename_dataframe")
 
@@ -66,7 +65,7 @@ Public Class dlgRenameDataFrame
     End Sub
 
     Private Sub TestOKEnabled()
-        If ((Not ucrInputNewName.IsEmpty) AndAlso (ucrDataFrameToRename.cboAvailableDataFrames.Text <> "")) AndAlso (Not ucrDataFrameToRename.cboAvailableDataFrames.Items.Contains(ucrInputNewName.GetText)) Then
+        If ((Not ucrInputNewName.IsEmpty) AndAlso (ucrDataFrameToRename.cboAvailableDataFrames.Text <> "")) Then
             ucrBase.OKEnabled(True)
         Else
             ucrBase.OKEnabled(False)
@@ -76,6 +75,7 @@ Public Class dlgRenameDataFrame
     Private Sub ucrBase_ClickReset(sender As Object, e As EventArgs) Handles ucrBase.ClickReset
         SetDefaults()
         SetRCodeforControls(True)
+        CheckAutoName()
         TestOKEnabled()
     End Sub
 

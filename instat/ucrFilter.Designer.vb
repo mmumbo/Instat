@@ -1,4 +1,20 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿' R- Instat
+' Copyright (C) 2015-2017
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License 
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ucrFilter
     Inherits System.Windows.Forms.UserControl
 
@@ -62,11 +78,11 @@ Partial Class ucrFilter
         '
         'cmdToggleSelectAll
         '
-        Me.cmdToggleSelectAll.Location = New System.Drawing.Point(413, 283)
+        Me.cmdToggleSelectAll.Location = New System.Drawing.Point(674, 363)
         Me.cmdToggleSelectAll.Name = "cmdToggleSelectAll"
         Me.cmdToggleSelectAll.Size = New System.Drawing.Size(93, 23)
         Me.cmdToggleSelectAll.TabIndex = 7
-        Me.cmdToggleSelectAll.Text = "Select All"
+        Me.cmdToggleSelectAll.Text = "Select All Levels"
         Me.cmdToggleSelectAll.UseVisualStyleBackColor = True
         '
         'lstFilters
@@ -147,6 +163,8 @@ Partial Class ucrFilter
         '
         'ucrValueForFilter
         '
+        Me.ucrValueForFilter.AddQuotesIfUnrecognised = True
+        Me.ucrValueForFilter.IsMultiline = False
         Me.ucrValueForFilter.IsReadOnly = False
         Me.ucrValueForFilter.Location = New System.Drawing.Point(490, 40)
         Me.ucrValueForFilter.Name = "ucrValueForFilter"
@@ -155,6 +173,8 @@ Partial Class ucrFilter
         '
         'ucrFilterPreview
         '
+        Me.ucrFilterPreview.AddQuotesIfUnrecognised = True
+        Me.ucrFilterPreview.IsMultiline = False
         Me.ucrFilterPreview.IsReadOnly = False
         Me.ucrFilterPreview.Location = New System.Drawing.Point(96, 337)
         Me.ucrFilterPreview.Name = "ucrFilterPreview"
@@ -163,6 +183,7 @@ Partial Class ucrFilter
         '
         'ucrFilterOperation
         '
+        Me.ucrFilterOperation.AddQuotesIfUnrecognised = True
         Me.ucrFilterOperation.IsReadOnly = False
         Me.ucrFilterOperation.Location = New System.Drawing.Point(420, 40)
         Me.ucrFilterOperation.Name = "ucrFilterOperation"
@@ -177,17 +198,21 @@ Partial Class ucrFilter
         Me.ucrFactorLevels.Location = New System.Drawing.Point(413, 61)
         Me.ucrFactorLevels.Name = "ucrFactorLevels"
         Me.ucrFactorLevels.shtCurrSheet = Nothing
-        Me.ucrFactorLevels.Size = New System.Drawing.Size(354, 216)
+        Me.ucrFactorLevels.Size = New System.Drawing.Size(354, 297)
         Me.ucrFactorLevels.TabIndex = 2
+        Me.ucrFactorLevels.ucrChkLevels = Nothing
         '
         'ucrFilterByReceiver
         '
+        Me.ucrFilterByReceiver.frmParent = Nothing
         Me.ucrFilterByReceiver.Location = New System.Drawing.Point(278, 42)
         Me.ucrFilterByReceiver.Margin = New System.Windows.Forms.Padding(0)
         Me.ucrFilterByReceiver.Name = "ucrFilterByReceiver"
         Me.ucrFilterByReceiver.Selector = Nothing
         Me.ucrFilterByReceiver.Size = New System.Drawing.Size(120, 20)
+        Me.ucrFilterByReceiver.strNcFilePath = ""
         Me.ucrFilterByReceiver.TabIndex = 1
+        Me.ucrFilterByReceiver.ucrSelector = Nothing
         '
         'ucrSelectorForFitler
         '

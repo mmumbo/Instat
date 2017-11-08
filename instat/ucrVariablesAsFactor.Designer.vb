@@ -1,4 +1,20 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿' R- Instat
+' Copyright (C) 2015-2017
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License 
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ucrVariablesAsFactor
     Inherits instat.ucrReceiver
 
@@ -29,27 +45,33 @@ Partial Class ucrVariablesAsFactor
         '
         'ucrMultipleVariables
         '
+        Me.ucrMultipleVariables.frmParent = Nothing
         Me.ucrMultipleVariables.Location = New System.Drawing.Point(0, 30)
         Me.ucrMultipleVariables.Margin = New System.Windows.Forms.Padding(0)
         Me.ucrMultipleVariables.Name = "ucrMultipleVariables"
         Me.ucrMultipleVariables.Selector = Nothing
         Me.ucrMultipleVariables.Size = New System.Drawing.Size(120, 100)
+        Me.ucrMultipleVariables.strNcFilePath = ""
         Me.ucrMultipleVariables.TabIndex = 1
+        Me.ucrMultipleVariables.ucrSelector = Nothing
         '
         'ucrSingleVariable
         '
-        Me.ucrSingleVariable.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ucrSingleVariable.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)
+        ), System.Windows.Forms.AnchorStyles)
+        Me.ucrSingleVariable.frmParent = Nothing
         Me.ucrSingleVariable.Location = New System.Drawing.Point(0, 30)
         Me.ucrSingleVariable.Margin = New System.Windows.Forms.Padding(0)
         Me.ucrSingleVariable.Name = "ucrSingleVariable"
         Me.ucrSingleVariable.Selector = Nothing
         Me.ucrSingleVariable.Size = New System.Drawing.Size(120, 20)
+        Me.ucrSingleVariable.strNcFilePath = ""
         Me.ucrSingleVariable.TabIndex = 2
+        Me.ucrSingleVariable.ucrSelector = Nothing
         '
         'cmdVariables
         '
-        Me.cmdVariables.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.cmdVariables.Dock = System.Windows.Forms.DockStyle.Top
         Me.cmdVariables.Location = New System.Drawing.Point(0, 0)
         Me.cmdVariables.Name = "cmdVariables"
         Me.cmdVariables.Size = New System.Drawing.Size(120, 27)
